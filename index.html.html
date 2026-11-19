@@ -1,0 +1,262 @@
+Dee<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Freedom of Silence – Privacy Protection</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#14182b;--mu:#5b6280;--ln:#e2e5f0;--ac:#5b5bf0;--ok:#15803d;--wa:#b45309;--ko:#dc2626;--hi:#eef0ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1020;--card:#161a30;--tx:#eef0ff;--mu:#9aa1c4;--ln:#2a3050;--ac:#8b8bff;--ok:#34d399;--wa:#fbbf24;--ko:#f87171;--hi:#1f2445;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1020;--card:#161a30;--tx:#eef0ff;--mu:#9aa1c4;--ln:#2a3050;--ac:#8b8bff;--ok:#34d399;--wa:#fbbf24;--ko:#f87171;--hi:#1f2445;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+.w{max-width:980px;margin:0 auto;padding:0 16px 40px}
+nav{padding:16px 0}.logo{font-weight:800;font-size:18px;color:var(--tx);text-decoration:none}.logo span{color:var(--ac)}
+.view{display:none}.view.on{display:block}
+h1{font-size:clamp(30px,6vw,48px);line-height:1.08;margin:8px 0 12px}h1 em{font-style:normal;color:var(--ac)}h2{margin:6px 0}h3{margin:0 0 6px;font-size:17px}
+.mu{color:var(--mu)}.back{color:var(--ac);text-decoration:none;font-weight:600;font-size:14px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:18px 0}
+.c{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:16px;margin:12px 0}
+a.c{display:block;color:inherit;text-decoration:none;margin:0}a.c:hover{border-color:var(--ac)}
+.btn{background:var(--ac);color:#fff;border:0;border-radius:12px;padding:11px 16px;font:600 15px inherit;font-family:inherit;cursor:pointer;margin:4px 6px 4px 0}
+.btn.o{background:transparent;color:var(--tx);border:1px solid var(--ln)}.btn:disabled{opacity:.5;cursor:not-allowed}
+textarea,input[type=text],select{width:100%;background:var(--bg);color:var(--tx);border:1px solid var(--ln);border-radius:12px;padding:10px;font:inherit;margin:4px 0 8px}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:99px;margin:2px 4px 2px 0;background:var(--hi);color:var(--ac)}
+.tag.ko{background:#dc262622;color:var(--ko)}.tag.wa{background:#d9770622;color:var(--wa)}.tag.ok{background:#16a34a22;color:var(--ok)}
+.top{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.ring{width:96px;height:96px;border-radius:50%;display:grid;place-items:center;font-size:30px;font-weight:800;border:9px solid var(--ok);flex:none}
+.bar{height:9px;background:var(--ln);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%}
+ul{padding-left:18px;margin:6px 0}li{margin:3px 0}.msg{color:var(--mu);font-size:14px;margin:8px 0}
+.noai .ai-note{display:block}.ai-note{display:none;background:#d9770622;color:var(--wa);padding:8px 12px;border-radius:10px;font-size:14px;margin:10px 0}
+canvas{max-width:100%;border-radius:12px;border:1px solid var(--ln);touch-action:none;cursor:crosshair}
+.chat{max-height:340px;overflow:auto}.b{padding:8px 12px;border-radius:12px;margin:6px 0;max-width:88%;white-space:pre-wrap}.b.u{background:var(--ac);color:#fff;margin-left:auto}.b.a{background:var(--hi)}
+.chip{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--hi);color:var(--ac);font-size:13px;font-weight:600;cursor:pointer;margin:0 6px 6px 0;border:0}
+label.k{display:block;margin:7px 0;cursor:pointer}pre{white-space:pre-wrap;background:var(--bg);padding:12px;border-radius:12px;font:14px/1.5 inherit;font-family:inherit;border:1px solid var(--ln)}
+</style>
+</head>
+<body>
+<div class="w">
+<nav><a class="logo" href="#home">🛡️ Freedom of <span>Silence</span></a></nav>
+<div class="ai-note" id="aiN">La parte con IA richiede un account Claude e il tuo consenso all’apertura nell’app Claude: in questa vista non è disponibile.</div>
+
+<div class="view on" id="home">
+<h1>Scopri quanto di te è <em>già pubblico</em>.</h1>
+<p class="mu">Cinque strumenti per controllare alcuni rischi per la privacy. Le verifiche automatiche di questa versione sono locali e basate su regole: non usano intelligenza artificiale. Scegli una funzione.</p>
+<div class="g">
+<a class="c" href="#termini"><h3>📄 Guardiano dei Termini</h3><p class="mu">Incolla termini o cookie policy: controllo automatico di parole e clausole da verificare.</p></a>
+<a class="c" href="#scanner"><h3>🔎 Privacy Scanner</h3><p class="mu">Carica una foto: metadati GPS, dati esposti e oscuramento manuale.</p></a>
+<a class="c" href="#footprint"><h3>🧩 Footprint Simulator</h3><p class="mu">Controllo di indizi personali nei testi che inserisci.</p></a>
+<a class="c" href="#guardian"><h3>🛡️ Privacy Guardian</h3><p class="mu">Genera la richiesta GDPR (cancellazione, accesso…) e la checklist delle impostazioni.</p></a>
+<a class="c" href="#chat"><h3>💬 Assistente Q&amp;A</h3><p class="mu">Cerca parole e passaggi nel testo del contratto.</p></a>
+</div>
+<p class="msg">Prototipo gratuito: i controlli di questa versione avvengono nel browser e non inviano i testi a servizi esterni. Non è consulenza legale. Le verifiche sono limitate e non equivalgono a un’analisi con IA.</p>
+</div>
+
+<!-- TERMINI -->
+<div class="view" id="termini">
+<a class="back" href="#home">← Tutte le funzioni</a><h2>📄 Guardiano dei Termini</h2>
+<div class="c">
+<input type="text" id="url" placeholder="Link dei Termini o della Cookie Policy (facoltativo)">
+<textarea id="txt" rows="6" placeholder="Incolla qui il testo dei Termini e Condizioni / Cookie Policy (consigliato: l’analisi è molto più affidabile)"></textarea>
+<button class="btn ai" id="go">Analizza</button><button class="btn o" id="ex">Usa un testo d’esempio</button>
+<p class="msg">Questa versione non apre link esterni e non usa servizi IA. Incolla il testo: il controllo locale cerca parole chiave e clausole da verificare. Non è una valutazione legale.</p>
+</div>
+<div id="tout"></div>
+</div>
+
+<!-- SCANNER -->
+<div class="view" id="scanner">
+<a class="back" href="#home">← Tutte le funzioni</a><h2>🔎 Privacy Scanner</h2>
+<div class="c"><input type="file" id="img" accept="image/*">
+<p class="msg">La foto resta nel browser. I metadati GPS vengono controllati localmente. Trascina sull’immagine per oscurare una zona; il salvataggio crea una nuova immagine senza i metadati originali.</p>
+<canvas id="cv" width="10" height="10"></canvas>
+<div><button class="btn o" id="undo">Annulla riquadro</button><button class="btn ai" id="scan">Controlla la foto</button><button class="btn" id="dl">Scarica foto protetta</button></div>
+<div id="exif"></div><div id="sout"></div>
+ <div class="c"><h3>Controllo manuale prima di condividere</h3>
+ <p class="msg">Lo scanner non riconosce automaticamente questi elementi: controllali tu nell’immagine.</p>
+ <label class="k"><input type="checkbox"> Volti e persone riconoscibili</label>
+ <label class="k"><input type="checkbox"> Targhe e numeri identificativi</label>
+ <label class="k"><input type="checkbox"> Documenti, badge o schermate</label>
+ <label class="k"><input type="checkbox"> Indirizzi, nomi e dati di contatto</label>
+ <label class="k"><input type="checkbox"> Dettagli dello sfondo che rivelano un luogo</label>
+ </div></div>
+</div>
+
+<!-- FOOTPRINT -->
+<div class="view" id="footprint">
+<a class="back" href="#home">← Tutte le funzioni</a><h2>🧩 Footprint Simulator</h2>
+<div class="c"><p class="mu" style="margin-top:0">Inserisci testi o contenuti pubblici (un contenuto per riga). Il controllo automatico locale cerca parole che potrebbero rivelare informazioni personali.</p>
+<textarea id="posts" rows="6" placeholder="Es.&#10;Post: “Come ogni martedì sera, corsa al parco!”&#10;Foto: vista dal balcone con un campanile&#10;Bio: studentessa di Giurisprudenza, Bologna"></textarea>
+<button class="btn ai" id="fgo">Simula</button>
+<div id="fout"></div></div>
+</div>
+
+<!-- GUARDIAN -->
+<div class="view" id="guardian">
+<a class="back" href="#home">← Tutte le funzioni</a><h2>🛡️ Privacy Guardian</h2>
+<div class="c"><h3>Richiesta GDPR pronta da inviare</h3>
+<input type="text" id="gn" placeholder="Il tuo nome e cognome"><input type="text" id="gs" placeholder="Servizio o titolare del trattamento (es. NomeApp S.r.l.)"><input type="text" id="gm" placeholder="Email dell’account usata sul servizio">
+<select id="gr"><option value="17">Cancellazione dei dati (art. 17)</option><option value="15">Accesso ai dati (art. 15)</option><option value="21">Opposizione a marketing e profilazione (art. 21)</option><option value="20">Portabilità dei dati (art. 20)</option><option value="16">Rettifica dei dati (art. 16)</option></select>
+<button class="btn" id="gg">Genera lettera</button><div id="gout"></div></div>
+<div class="c"><h3>Checklist impostazioni</h3><div class="bar"><i id="gb" style="width:0;background:var(--ok)"></i></div><p class="msg" id="gp">0 su 6 completate</p>
+<label class="k"><input type="checkbox" class="ck"> Posizione disattivata per le app che non servono</label>
+<label class="k"><input type="checkbox" class="ck"> Metadati GPS tolti dalle foto prima di pubblicarle (usa lo Scanner)</label>
+<label class="k"><input type="checkbox" class="ck"> Profili social impostati come privati</label>
+<label class="k"><input type="checkbox" class="ck"> Personalizzazione annunci disattivata</label>
+<label class="k"><input type="checkbox" class="ck"> Cookie non essenziali rifiutati</label>
+<label class="k"><input type="checkbox" class="ck"> Account inutilizzati cancellati</label></div>
+</div>
+
+<!-- CHAT -->
+<div class="view" id="chat">
+<a class="back" href="#home">← Tutte le funzioni</a><h2>💬 Ricerca nel testo del contratto</h2>
+<div class="c"><textarea id="ctx" rows="4" placeholder="Incolla il testo del contratto (o analizzalo prima nel Guardiano dei Termini)"></textarea>
+<div><button class="chip" data-q="Come posso cancellare definitivamente i miei dati?">Come cancello i dati?</button><button class="chip" data-q="I miei dati vengono ceduti a terzi? A chi e perché?">Cessione a terzi?</button><button class="chip" data-q="Ci sono costi nascosti o rinnovi automatici?">Costi nascosti?</button></div>
+<div class="chat" id="cl"></div>
+<input type="text" id="ci" placeholder="Scrivi la tua domanda…"><button class="btn ai" id="cs">Invia</button></div>
+</div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function route(){let h=location.hash.slice(1)||'home',v=$(h);if(!v||!v.classList.contains('view'))h='home';document.querySelectorAll('.view').forEach(x=>x.classList.toggle('on',x.id===h));window.scrollTo(0,0)}
+addEventListener('hashchange',route);route();
+function li(a){return a.length?'<ul>'+a.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>':'<p class="mu">Nessun elemento rilevato dalle regole di controllo.</p>'}
+function download(blob,name){let u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1500)}
+const SAMPLE='Termini di Servizio di SocialNova. Registrandoti concedi a SocialNova una licenza mondiale, perpetua e sublicenziabile su tutti i contenuti che carichi. Raccogliamo la tua posizione GPS anche quando l’app è in background, la rubrica e i dati di navigazione su siti di terzi. Condividiamo i dati con inserzionisti e partner pubblicitari per la profilazione. L’abbonamento Premium si rinnova automaticamente ogni anno e non è rimborsabile; la disdetta va inviata per raccomandata. Puoi chiedere la cancellazione dell’account, ma i dati restano nei nostri backup per 24 mesi. Rinunci a ogni azione collettiva. Possiamo modificare questi termini in qualsiasi momento senza preavviso.';
+$('ex').onclick=()=>{$('txt').value=SAMPLE;$('url').value=''};
+$('go').onclick=()=>{
+ let t=$('txt').value.trim();
+ if(!t){$('tout').innerHTML='<p class="msg">Incolla il testo dei termini: il solo link non può essere analizzato.</p>';return}
+ const categories=[
+  {name:'Posizione e tracciamento',re:/posizione|gps|geolocal|localizzazione|coordinate|luogo|spostament/i,level:'Attenzione',why:'Il testo potrebbe prevedere la raccolta di dati sulla posizione o sugli spostamenti.',check:'Controlla quando viene raccolta la posizione, se continua in background e come puoi disattivarla.'},
+  {name:'Dati personali e profilazione',re:/profilazion|abitudin|navigazione|rubrica|contatti|identificativ|dati personali|interess/i,level:'Da verificare',why:'Potrebbero essere raccolti dati personali o usati per creare un profilo sulle tue abitudini e preferenze.',check:'Verifica quali dati sono raccolti, per quali finalità e su quale base giuridica.'},
+  {name:'Condivisione con terzi',re:/terze parti|terzi|partner|inserzionist|condivid|comunich|fornitor|destinatari/i,level:'Attenzione',why:'Il testo potrebbe consentire la comunicazione dei dati ad altre società o soggetti.',check:'Cerca chi riceve i dati, per quali scopi e se sono previsti trasferimenti fuori dallo Spazio economico europeo.'},
+  {name:'Conservazione e cancellazione',re:/conserv|backup|perpetu|per \d+ anni|mesi|cancellazion|archivia/i,level:'Da verificare',why:'Potrebbero esserci regole sui tempi di conservazione o sulla permanenza dei dati dopo la chiusura dell’account.',check:'Individua i tempi di conservazione, le eccezioni e cosa succede ai backup.'},
+  {name:'Rinnovi, costi e disdetta',re:/rinnov|abbonament|automatic|recesso|disdett|rimborso|prezz|costo|penal/i,level:'Attenzione',why:'Il testo potrebbe contenere condizioni economiche, rinnovi automatici o limiti alla disdetta.',check:'Controlla prezzo totale, frequenza del rinnovo, modalità e termini per disdire e condizioni di rimborso.'},
+  {name:'Diritti e modifiche dei termini',re:/gdpr|regolamento|accesso ai dati|rettifica|opposizione|modificare.*termini|senza preavviso|modifica dei termini/i,level:'Da verificare',why:'Il testo potrebbe descrivere i tuoi diritti o consentire modifiche unilaterali delle condizioni.',check:'Verifica come esercitare i diritti, come vengono comunicate le modifiche e da quando si applicano.'}
+ ];
+ const sentences=t.split(/(?<=[.!?;])\s+/).map(x=>x.trim()).filter(Boolean);
+ let html='<div class="c"><h3>Risultato del controllo locale</h3><p>Queste categorie sono state confrontate con parole chiave. Apri ogni sezione per leggere i passaggi trovati e i controlli suggeriti.</p>';
+ let count=0;
+ categories.forEach(c=>{
+  const hits=sentences.filter(x=>c.re.test(x));
+  if(!hits.length)return;
+  count++;
+  html+='<details class="c"><summary><b>'+esc(c.name)+'</b> — <span class="tag wa">'+c.level+'</span></summary><p>'+esc(c.why)+'</p><b>Frasi trovate nel testo:</b>'+li(hits)+'<b>Controllo suggerito:</b><p>'+esc(c.check)+'</p><label class="k"><input type="checkbox" class="termcheck"> Ho verificato questo punto</label></details>';
+ });
+ if(!count)html+='<p class="mu">Nessuna categoria è stata individuata dalle parole chiave utilizzate. Questo non dimostra che il contratto sia privo di clausole importanti.</p>';
+ html+='</div><p class="msg">Il controllo può non riconoscere formulazioni diverse e può segnalare falsi positivi. Leggi sempre il contesto completo: non è una valutazione legale né una consulenza.</p>';
+ $('tout').innerHTML=html;
+};
+// Navigazione e scanner foto
+let cv=$('cv'),cx=cv.getContext('2d'),base=null,boxes=[],drag=null;
+function redraw(){if(!base)return;cx.clearRect(0,0,cv.width,cv.height);cx.drawImage(base,0,0);cx.fillStyle='#000';boxes.forEach(b=>cx.fillRect(...b));if(drag){cx.strokeStyle='#f43';cx.lineWidth=2;cx.strokeRect(...drag)}}
+function exif(buf){try{let v=new DataView(buf);if(v.getUint16(0)!==0xffd8)return{fmt:false,gps:null};let o=2;while(o<v.byteLength-4){let m=v.getUint16(o),l=v.getUint16(o+2);if(m===0xffe1&&v.getUint32(o+4)===0x45786966){let t=o+10,le=v.getUint16(t)===0x4949,g16=p=>v.getUint16(p,le),g32=p=>v.getUint32(p,le),p0=t+g32(t+4),n=g16(p0),gp=null;for(let i=0;i<n;i++){let e=p0+2+i*12;if(g16(e)===0x8825)gp=g32(e+8)}if(gp===null)return{fmt:true,gps:null};let q=t+gp,k=g16(q),r={};for(let j=0;j<k;j++){let e=q+2+j*12,tg=g16(e);if(tg===1||tg===3)r[tg]=String.fromCharCode(v.getUint8(e+8));if(tg===2||tg===4){let a=t+g32(e+8);r[tg]=g32(a)/g32(a+4)+g32(a+8)/g32(a+12)/60+g32(a+16)/g32(a+20)/3600}}let la=r[2]*(r[1]==='S'?-1:1),lo=r[4]*(r[3]==='W'?-1:1);return{fmt:true,gps:Number.isFinite(la)&&Number.isFinite(lo)?[la,lo]:null}}o+=2+l}return{fmt:true,gps:null}}catch(e){return{fmt:false,gps:null}}}
+$('img').onchange=async function(){let f=this.files[0];if(!f)return;let ex=exif(await f.arrayBuffer());$('exif').innerHTML=ex.gps?'<p><span class="tag ko">Attenzione</span> Coordinate GPS presenti: '+ex.gps.map(x=>x.toFixed(5)).join(', ')+'.</p>':'<p><span class="tag ok">Controllo GPS</span> Nessuna coordinata GPS JPEG rilevata. Altri metadati o formati potrebbero non essere controllati.</p>';try{let bm=await createImageBitmap(f),k=Math.min(1,900/bm.width);cv.width=Math.round(bm.width*k);cv.height=Math.round(bm.height*k);base=document.createElement('canvas');base.width=cv.width;base.height=cv.height;base.getContext('2d').drawImage(bm,0,0,cv.width,cv.height);boxes=[];redraw();$('sout').innerHTML='<p class="msg">Trascina il dito sulla foto per coprire le aree. Il file esportato sarà una nuova immagine raster senza i metadati originali.</p>'}catch(e){$('sout').textContent='Impossibile aprire questa immagine nel browser.'}};
+function pt(e){let r=cv.getBoundingClientRect();return[(e.clientX-r.left)*cv.width/r.width,(e.clientY-r.top)*cv.height/r.height]}
+cv.onpointerdown=e=>{if(!base)return;let p=pt(e);drag=[p[0],p[1],0,0];cv.setPointerCapture(e.pointerId)};cv.onpointermove=e=>{if(!drag)return;let p=pt(e);drag[2]=p[0]-drag[0];drag[3]=p[1]-drag[1];redraw()};cv.onpointerup=()=>{if(drag&&Math.abs(drag[2])>4&&Math.abs(drag[3])>4){let [x,y,w,h]=drag;boxes.push([Math.min(x,x+w),Math.min(y,y+h),Math.abs(w),Math.abs(h)])}drag=null;redraw()};$('undo').onclick=()=>{boxes.pop();redraw()};$('dl').onclick=()=>{if(!base){$('sout').textContent='Carica prima una foto.';return}let out=document.createElement('canvas');out.width=base.width;out.height=base.height;out.getContext('2d').drawImage(base,0,0);out.toBlob(b=>{if(b)download(b,'foto-protetta.jpg')},'image/jpeg',.92)};$('scan').onclick=()=>{$('sout').innerHTML='<p class="msg">Il controllo automatico è limitato ai metadati GPS dei file JPEG. Non riconosce volti, targhe o documenti: esamina manualmente l’immagine e usa il dito per oscurare le aree che non vuoi condividere.</p>'};
+// Footprint: controlli lessicali, senza analisi immagini
+$('fgo').onclick=()=>{
+ let t=$('posts').value.trim();
+ if(!t){$('fout').textContent='Inserisci prima uno o più contenuti testuali.';return}
+ let rules=[
+  ['Luoghi e posizione',/indirizz|via |piazza|gps|posizione|quartier|città|paese|parco|stazione/i,'Un dettaglio potrebbe aiutare a riconoscere un luogo frequentato o collegare un contenuto a una zona.','Rimuovi indirizzi precisi e dettagli non necessari; valuta se il luogo può identificarti.'],
+  ['Routine e orari',/ogni giorno|ogni lunedì|ogni martedì|ogni settimana|alle [0-2]?\d[:.]\d\d|mattina|sera|turno/i,'La ripetizione di orari e abitudini potrebbe rendere prevedibili alcuni spostamenti.','Evita di pubblicare in tempo reale orari ricorrenti o assenze.'],
+  ['Lavoro o studio',/ufficio|lavoro|azienda|scuola|università|universita|classe|collega/i,'Il contenuto potrebbe rivelare un ambiente di studio o lavoro e facilitare collegamenti con altri profili.','Condividi solo i dettagli necessari e controlla chi può vedere il contenuto.'],
+  ['Contatti e identità',/telefono|cellulare|email|e-mail|numero|nome e cognome/i,'Un recapito o un identificativo potrebbe facilitare il collegamento tra account o contatti indesiderati.','Oscura recapiti e identificativi prima di pubblicare.'],
+  ['Viaggi e assenze',/vacanz|viaggio|parto|partenza|aeroporto|hotel|fuori città/i,'Informazioni su viaggi e assenze potrebbero rivelare che non sei nel tuo luogo abituale.','Valuta di condividere le immagini dopo il rientro e non pubblicare dettagli logistici in tempo reale.']
+ ];
+ let found=rules.filter(x=>x[1].test(t));
+ let html='<div class="c"><h3>Indizi testuali rilevati</h3>';
+ html+=found.length?'<ul>'+found.map(x=>'<li>'+esc(x[0])+'</li>').join('')+'</ul>':'<p class="mu">Nessun indizio individuato dalle parole chiave utilizzate.</p>';
+ html+='</div>';
+ if(found.length){
+  html+='<div class="c"><h3>Possibile esposizione e suggerimenti</h3>';
+  found.forEach(x=>{html+='<details class="c"><summary><b>'+esc(x[0])+'</b></summary><p><b>Possibile esposizione:</b> '+esc(x[2])+'</p><p><b>Protezione suggerita:</b> '+esc(x[3])+'</p></details>'});
+  html+='</div>';
+ }
+ $('fout').innerHTML=html+'<p class="msg">È un controllo lessicale semplice, basato soltanto sul testo inserito. Non analizza foto, profili o persone e non dimostra che le informazioni siano davvero pubbliche. Le conseguenze indicate sono ipotetiche: rivedi manualmente il contesto prima di condividere.</p>';
+};
+// GDPR letter
+$('gg').onclick=()=>{let n=$('gn').value||'[Nome e cognome]',s=$('gs').value||'[Titolare del trattamento]',m=$('gm').value||'[email account]',r=$('gr').value,R={'17':['cancellazione dei miei dati personali','Chiedo la cancellazione dei dati personali che mi riguardano ai sensi dell’art. 17 GDPR.'],'15':['accesso ai miei dati personali','Chiedo conferma del trattamento e copia dei dati, con informazioni su finalità, destinatari e conservazione, ai sensi dell’art. 15 GDPR.'],'21':['opposizione al marketing','Mi oppongo al trattamento dei miei dati per marketing diretto ai sensi dell’art. 21 GDPR.'],'20':['portabilità dei miei dati','Chiedo di ricevere i dati in formato strutturato e leggibile da dispositivo automatico ai sensi dell’art. 20 GDPR.'],'16':['rettifica dei miei dati','Chiedo la rettifica dei dati inesatti ai sensi dell’art. 16 GDPR.']}[r];let L='Oggetto: Richiesta di '+R[0]+'\n\nSpett.le '+s+',\n\nio sottoscritto/a '+n+', titolare dell’account associato a '+m+', esercito i diritti previsti dal Regolamento (UE) 2016/679.\n\n'+R[1]+'\n\nAi sensi dell’art. 12, par. 3, GDPR attendo riscontro entro un mese dal ricevimento.\n\nDistinti saluti,\n'+n;$('gout').innerHTML='<pre id="lt">'+esc(L)+'</pre><button class="btn" id="cp">Copia</button><button class="btn o" id="ds">Scarica .txt</button>';$('cp').onclick=async()=>{try{await navigator.clipboard.writeText(L);$('cp').textContent='Copiata'}catch(e){$('lt').textContent=L;$('cp').textContent='Seleziona il testo per copiarlo'}};$('ds').onclick=()=>download(new Blob([L],{type:'text/plain;charset=utf-8'}),'richiesta-gdpr.txt')};
+document.querySelectorAll('.ck').forEach(c=>c.onchange=()=>{let n=document.querySelectorAll('.ck:checked').length;$('gb').style.width=n/6*100+'%';$('gp').textContent=n+' su 6 completate'});
+// Q&A locale: ricerca per argomenti e parole correlate, non chatbot IA
+let turns=[];
+const temi=[
+ {nom:'recesso e interruzione',parole:['recesso','recedere','recedi','recedo','disdetta','disdire','interrompere','interruzione','terminare','terminazione','cessazione','risoluzione','annullare','annullamento','rescissione']},
+ {nom:'costi e penali',parole:['costo','costi','spesa','spese','penale','penali','penalita','corrispettivo','corrispettivi','commissione','commissioni','addebito','addebiti','pagamento','pagare','importo','importi','rimborso','rimborsabile','tariffa','tariffe']},
+ {nom:'rinnovo e durata',parole:['rinnovo','rinnovare','automatico','automaticamente','durata','scadenza','proroga','preavviso']},
+ {nom:'terze parti e condivisione',parole:['terze parti','terzi','condivisione','condividere','comunicazione','comunicare','cessione','cedere','trasferimento','trasferire','destinatari','fornitori','subfornitori']},
+ {nom:'dati personali e privacy',parole:['dati','personali','privacy','informazioni','profilazione','marketing','consenso','trattamento']},
+ {nom:'conservazione e cancellazione',parole:['conservazione','conservare','conservati','backup','cancellazione','cancellare','eliminazione','eliminare','archiviazione','mesi','anni']}
+];
+function send(q){
+ let c=$('ctx').value.trim();
+ if(!c){$('cl').innerHTML='<p class="msg">Incolla prima il testo del contratto.</p>';return}
+ if(!q)return;
+
+ const norm=x=>x.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+ let domanda=norm(q);
+ let attivi=temi.filter(g=>g.parole.some(w=>domanda.includes(norm(w))));
+ let termini=domanda.match(/[a-z0-9]{4,}/g)||[];
+
+ const frasi=c.split(/(?<=[.!?;])\s+/).map(x=>x.trim()).filter(Boolean);
+ let risultati=frasi.map(frase=>{
+   let t=norm(frase);
+   let dirette=termini.filter(w=>t.includes(w)).length;
+   let gruppi=attivi.filter(g=>g.parole.some(w=>t.includes(norm(w))));
+   return {frase,score:dirette+gruppi.length*2,gruppi,dirette};
+ }).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,6);
+
+ let html;
+ if(risultati.length){
+   let spiegazioni='';
+   const chiedeRecesso=/recess|disdett|disdire|interromp|cessaz|terminare|annull/.test(domanda);
+   const chiedeCosti=/cost|spes|penal|pagare|pagamento|corrispettiv/.test(domanda);
+
+   if(chiedeRecesso){
+     let clausola=frasi.find(f=>/reced|recesso|disdett|interromp|cessaz|terminaz/.test(norm(f)));
+     if(clausola){
+       spiegazioni+='<li><b>Recesso o disdetta:</b> nel testo compare questa indicazione: '+esc(clausola)+'</li>';
+     }else{
+       spiegazioni+='<li><b>Recesso o disdetta:</b> non ho trovato una clausola esplicita nei passaggi esaminati.</li>';
+     }
+
+     let preavviso=frasi.find(f=>/preavvis|giorn|giorno/.test(norm(f)));
+     if(preavviso){
+       spiegazioni+='<li><b>Preavviso o termini:</b> il testo contiene questa indicazione: '+esc(preavviso)+'</li>';
+     }
+   }
+
+   if(chiedeCosti){
+     let clausolaCosti=frasi.find(f=>/cost|spes|penal|corrispettiv|commission|addebito/.test(norm(f)));
+     if(clausolaCosti){
+       spiegazioni+='<li><b>Costi e penali:</b> il testo contiene questa indicazione: '+esc(clausolaCosti)+'</li>';
+     }else{
+       spiegazioni+='<li><b>Costi e penali:</b> nei passaggi esaminati non ho trovato un’indicazione esplicita. Questo non dimostra che non esistano costi in altre parti del contratto.</li>';
+     }
+   }
+
+   if(!spiegazioni){
+     spiegazioni='<li>Ho individuato passaggi che contengono parole collegate alla tua domanda. Leggi le clausole riportate qui sotto.</li>';
+   }
+
+   let elenco=risultati.map(x=>'<li>'+esc(x.frase)+'</li>').join('');
+   html='<b>In breve:</b><ul>'+spiegazioni+'</ul><b>Passaggi potenzialmente pertinenti:</b><ul>'+elenco+'</ul><p class="msg">La spiegazione si basa sulle parole trovate nel testo e potrebbe non individuare tutte le clausole collegate.</p>';
+ }else{
+   html='Non ho trovato passaggi pertinenti nel testo inserito. Prova con altre parole oppure verifica manualmente le clausole: questa ricerca può non riconoscere formulazioni diverse.';
+ }
+
+ $('cl').innerHTML+='<div class="b u">'+esc(q)+'</div><div class="b a">'+html+'<p class="msg">Ricerca locale per parole e argomenti correlati: non interpreta il significato giuridico, non deduce conclusioni certe e non sostituisce una verifica legale.</p></div>';
+ $('cl').scrollTop=$('cl').scrollHeight;
+ $('ci').value='';
+}
+$('cs').onclick=()=>send($('ci').value.trim());
+$('ci').onkeydown=e=>{if(e.key==='Enter')send($('ci').value.trim())};
+document.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>send(b.dataset.q));
+$('ctx').onchange=()=>{$('cl').innerHTML=''};
+</script>
+</body>
+</html>
